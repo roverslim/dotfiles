@@ -1,0 +1,117 @@
+
+set expandtab
+
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+set smarttab
+set autoindent
+set complete-=k complete+=k
+set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
+set encoding=utf8
+set fileencodings=utf8,latin1
+set ignorecase
+set smartcase
+set modeline
+set nobk
+set ruler
+set hlsearch
+set showmatch
+set splitbelow
+set tags=./tags;../tags;../../tags;../../../tags;../../../../tags;~/tags
+set title
+set ttyfast
+set visualbell t_vb=
+set wildignore=*.bak,~,*.o,*.info,*.swp,*.class,*.aux,*.log,*.tmp,*.tar,*.gz,*.tgz
+set diffopt=filler,vertical,iwhite
+set splitright
+set foldmethod=manual
+set nofoldenable
+set tabpagemax=35
+set wildmenu
+set wildmode=list:longest,full
+set backupskip-=/private/tmp/* backupskip+=/private/tmp/*
+
+set cursorline
+set t_Co=256
+highlight EOLSpace ctermbg=red guibg=red
+match EOLSpace /\s\+$/
+
+let g:SimpleFold_use_subfolds = 0
+
+vnoremap < <gv
+vnoremap > >gv
+nmap n nmzz.`z
+nmap N Nmzz.`z
+nmap * *mzz.`z
+nmap # #mzz.`z
+nmap g* g*mzz.`z
+nmap g# g#mzz.`z
+map <C-N> n
+map <Space> za
+nmap 2s :set expandtab shiftwidth=2 tabstop=2 softtabstop=2<CR>
+nmap 4s :set expandtab shiftwidth=4 tabstop=4 softtabstop=4<CR>
+nmap 8t :set noexpandtab shiftwidth=8 tabstop=8 softtabstop=8<CR>
+
+set ruler
+set cursorline
+"set number
+""execute pathogen#infect()
+syntax on
+
+filetype plugin indent on
+
+syntax enable
+
+" Solarized stuff
+let g:solarized_termtrans = 1
+let g:solarized_termcolors=256
+set background=light
+"colorscheme default
+
+if has("gui_running")
+
+  set guifont=Monaco:h13
+  set dy=uhex
+
+  silent! set nomacatsui
+  set termencoding=macroman
+  set anti
+  set fuopt+=maxhorz
+
+endif
+
+if has("autocmd")
+
+  filetype plugin indent on
+  syntax on
+
+  autocmd FileType c,cpp setlocal noexpandtab shiftwidth=8 tabstop=8 softtabstop=8
+
+  autocmd FileType html,css setlocal noexpandtab shiftwidth=2 tabstop=2 softtabstop=2
+
+  let perl_fold=1
+  autocmd FileType perl setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType perl map <buffer> !<CR> :w !$ALIASPERL<CR>
+  autocmd FileType perl map <buffer> !!<CR> :!$ALIASPERL %<CR>
+  autocmd FileType perl map <buffer> c<CR> :w !$ALIASPERL -cw<CR>
+  autocmd FileType perl map <buffer> t<CR> :%!perltidy -q -et=4 -l=250 -pt=2 -bar -boc -cab=0 2>/dev/null<CR>
+
+  let ruby_space_errors = 1
+  let g:ruby_path=".,,"
+  autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType ruby map <buffer> !<CR> :w !$ALIASRUBY<CR>
+  autocmd FileType ruby map <buffer> !!<CR> :!$ALIASRUBY %<CR>
+  autocmd FileType ruby map <buffer> c<CR> :w !$ALIASRUBY -cw<CR>
+
+  autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
+  " Don't screw up folds when inserting text that might affect them, until
+  " leaving insert mode. Foldmethod is local to the window. Protect against
+  " screwing up folding when switching between windows.
+  autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+  autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+
+  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+  autocmd BufEnter * match OverLength /\%100v.*/
+endif
