@@ -1,0 +1,13 @@
+AllCops:
+  Exclude:
+    - 'test/dummy/**/*'
+    - 'test/test_helper.rb'
+
+'Metrics/LineLength':
+  Max: 100
+'Style/MethodDefParentheses':
+  Enabled: false
+'Style/Documentation':
+  Enabled: false
+'Style/SpaceInsideBrackets':
+  Enabled: false
