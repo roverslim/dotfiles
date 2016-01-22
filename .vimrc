@@ -18,7 +18,8 @@ syntax enable
 filetype plugin indent on
 
 set background=light
-let g:solarized_termcolors=256
+set t_Co=256                    " Force vim to use 256 colors
+let g:solarized_termcolors=256  " Use solarized 256 fallback
 colorscheme solarized
 
 call pathogen#helptags()
