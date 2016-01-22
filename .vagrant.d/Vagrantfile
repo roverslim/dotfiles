@@ -1,0 +1,16 @@
+# TODO: move this to dotfiles
+Vagrant::Config.run do |config|
+  $script = <<-SCRIPT
+    ln -sfv "/home/vagrant/.dotfiles/.vim" ~
+#    ln -sfv "/home/vagrant/.vim/bundle/vim-pathogen/autoload/pathogen.vim" "/home/vagrant/.vim/autoload/pathogen.vim"
+    ln -sfv "/home/vagrant/.dotfiles/.vimrc" ~
+
+    ln -sfv "/home/vagrant/.dotfiles/.oh-my-zsh" ~
+    ln -sfv "/home/vagrant/.dotfiles/z/z.sh" ~
+    ln -sfv "/home/vagrant/.dotfiles/.zshrc" ~
+  SCRIPT
+
+  config.vm.share_folder "v-dotfiles", "/home/vagrant/.dotfiles", File.expand_path("~/development/git/dotfiles")
+  config.vm.provision "shell", inline: $script, privileged: false
+  config.vm.provision "shell", inline: "chsh -s /bin/zsh vagrant", name: "Setting zsh as the default shell"
+end
