@@ -12,6 +12,7 @@ set autoindent "Copy the indentation from the previous line
 set tabstop=2 "Number of spaces that correspond to a tab
 set shiftwidth=2 "Number of space characters inserted for indentation
 set expandtab "Convert tabs to spaces
+set hlsearch "Highlighting search matches
 
 syntax enable
 
