@@ -4,6 +4,13 @@ export ZSH=~/.oh-my-zsh
 # include Z, yo
 . ~/z.sh
 
+# OSX-specific
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # chruby
+  source /usr/local/share/chruby/chruby.sh
+  source /usr/local/share/chruby/auto.sh
+fi
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
