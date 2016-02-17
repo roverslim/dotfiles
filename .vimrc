@@ -13,10 +13,12 @@ set tabstop=2 "Number of spaces that correspond to a tab
 set shiftwidth=2 "Number of space characters inserted for indentation
 set expandtab "Convert tabs to spaces
 set hlsearch "Highlighting search matches
+set noswapfile "Don't use a swapfile for the buffer
+match ErrorMsg '\%>120v.\+' "Highlight long lines
 
 syntax enable
-
 filetype plugin indent on
+au BufRead,BufNewFile *.mrb setfiletype ruby
 
 set background=light
 set t_Co=256                    " Force vim to use 256 colors
