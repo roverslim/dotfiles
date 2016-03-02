@@ -9,6 +9,8 @@ DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ln -sfv "$DOTFILES_DIR/.vim" ~
 ln -sfv "$DOTFILES_DIR/.vimrc" ~
 
+ln -sfv "$DOTFILES_DIR/.ackrc" ~
+
 ln -sfv "$DOTFILES_DIR/.vagrant.d/Vagrantfile" ~/.vagrant.d
 
 ln -sfv "$DOTFILES_DIR/.oh-my-zsh" ~
