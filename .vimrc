@@ -14,6 +14,9 @@ set shiftwidth=2 "Number of space characters inserted for indentation
 set expandtab "Convert tabs to spaces
 set hlsearch "Highlighting search matches
 set noswapfile "Don't use a swapfile for the buffer
+set relativenumber "Display line number relative to cursor
+set number "Display line number
+
 match ErrorMsg '\%>120v.\+' "Highlight long lines
 
 syntax enable
