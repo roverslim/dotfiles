@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
+export EDITOR='vim'
+export BUNDLER_EDITOR='vim'
+
 # include Z, yo
 . ~/z.sh
 
@@ -95,3 +98,5 @@ source $ZSH/oh-my-zsh.sh
 
 export NVM_DIR="/home/vagrant/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh

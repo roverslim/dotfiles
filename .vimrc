@@ -16,6 +16,7 @@ set hlsearch "Highlighting search matches
 set noswapfile "Don't use a swapfile for the buffer
 set relativenumber "Display line number relative to cursor
 set number "Display line number
+set tw=120 "Automatic word wrapping
 
 match ErrorMsg '\%>120v.\+' "Highlight long lines
 
