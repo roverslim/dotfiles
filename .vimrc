@@ -1,4 +1,3 @@
-" 
 " TODOs:
 "   - configure automatic retabing on file save
 "   - trailing whitespae highlighting (*automatic removal)
@@ -30,3 +29,8 @@ let g:solarized_termcolors=256  " Use solarized 256 fallback
 colorscheme solarized
 
 call pathogen#helptags()
+
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+call plug#end()
