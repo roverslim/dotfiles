@@ -16,7 +16,6 @@ ln -sfv "$DOTFILES_DIR/.ackrc" ~
 ln -sfv "$DOTFILES_DIR/.vagrant.d/Vagrantfile" ~/.vagrant.d
 
 ln -sfv "$DOTFILES_DIR/.oh-my-zsh" ~
-ln -sfv "$DOTFILES_DIR/z/z.sh" ~
 ln -sfv "$DOTFILES_DIR/.zshrc" ~
 chsh -s /bin/zsh
 
