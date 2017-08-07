@@ -1,7 +1,6 @@
 " TODOs:
 "   - configure automatic retabing on file save
 "   - trailing whitespae highlighting (*automatic removal)
-"   - read Vagrantfile as ruby
 "
 execute pathogen#infect()
 
