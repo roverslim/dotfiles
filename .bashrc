@@ -23,3 +23,5 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 # And this is from:
 # http://code.google.com/p/git-osx-installer/
 export PS1='$(git branch &>/dev/null; if [ $? -eq 0 ]; then echo "\[\033[22m\]\W \[\e[1;34m\]($(git branch | grep ^*|sed s/\*\ //))\[\e[1;37m\]"; else echo "\[\e[0;32m\]\u@\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;34m\]\$\[\e[m\]\[\e[1;37m\]"; fi) '
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

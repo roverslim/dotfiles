@@ -4,9 +4,6 @@ export ZSH=~/.oh-my-zsh
 export EDITOR='vim'
 export BUNDLER_EDITOR='vim'
 
-# include Z, yo
-. ~/z.sh
-
 # OSX-specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # chruby
@@ -62,7 +59,7 @@ ZSH_THEME="bira"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew osx z)
+plugins=(git brew osx)
 
 # User configuration
 
@@ -96,7 +93,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="/home/vagrant/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

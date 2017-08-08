@@ -1,7 +1,3 @@
-" TODOs:
-"   - configure automatic retabing on file save
-"   - trailing whitespae highlighting (*automatic removal)
-"
 execute pathogen#infect()
 
 set encoding=utf8 "Terminal output encoding
@@ -15,6 +11,7 @@ set noswapfile "Don't use a swapfile for the buffer
 set relativenumber "Display line number relative to cursor
 set number "Display line number
 set tw=120 "Automatic word wrapping
+set rtp+=/usr/local/opt/fzf "To use fzf in Vim
 
 match ErrorMsg '\%>120v.\+' "Highlight long lines
 
