@@ -1,7 +1,12 @@
 #!/usr/bin/env bash -e
 
-echo "Symlinking dotfiles to ~/ ..."
-# Get current dir (so this script can from anywhere)
+echo "Configuring development environment..."
+mkdir ~/development
+git clone https://github.com/roverslim/dotfiles ~/development/dotfiles
+ ~/development/dotfiles
+git submodule init
+git submodule update
+
 export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
