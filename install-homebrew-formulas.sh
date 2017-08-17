@@ -6,7 +6,10 @@ brew install \
   chruby \
   fzf \
   git \
-  postgresql
+  heroku \
+  postgresql \
+  ruby-build \
+  ruby-install
 
 echo "Installing FZF shell extensions...";
 /usr/local/opt/fzf/install
