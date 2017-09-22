@@ -6,6 +6,7 @@ git clone https://github.com/roverslim/dotfiles ~/development/dotfiles
  ~/development/dotfiles
 git submodule init
 git submodule update
+git config --global push.default simple
 
 export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
