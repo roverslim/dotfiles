@@ -4,6 +4,7 @@ echo "Installing Homebrew formulas..."
 brew install \
   ack \
   chruby \
+  elixir \
   fzf \
   git \
   heroku \
