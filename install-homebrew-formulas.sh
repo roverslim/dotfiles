@@ -5,6 +5,7 @@ brew install \
   ack \
   chruby \
   elixir \
+  elm \
   fzf \
   git \
   heroku \
