@@ -11,6 +11,8 @@ git config --global push.default simple
 export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+touch ~/.hushlogin # Get rid of the "last login" message atop each session
+
 # Symlimk dotfiles to home directory
 ln -sfv "$DOTFILES_DIR/.ackrc" ~
 ln -sfv "$DOTFILES_DIR/.rubocop.yml" ~
