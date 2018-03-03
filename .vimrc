@@ -20,9 +20,7 @@ filetype plugin indent on
 au BufRead,BufNewFile *.mrb setfiletype ruby
 au BufRead,BufNewFile *.axlsx setfiletype ruby
 
-set background=light
-set t_Co=256                    " Force vim to use 256 colors
-let g:solarized_termcolors=256  " Use solarized 256 fallback
-colorscheme solarized
+set t_Co=256 " Force vim to use 256 colors
+colorscheme railscasts
 
 call pathogen#helptags()
