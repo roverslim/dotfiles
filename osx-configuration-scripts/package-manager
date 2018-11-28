@@ -1,34 +1,34 @@
 #!/usr/bin/ruby
 
 FORMULAES = %w(
-	chruby
-	git
-	ruby-build
-	ruby-install
-	wget
+  chruby
+  git
+  ruby-build
+  ruby-install
+  wget
 ).freeze
 
 APPLICATIONS = %w(
-	google-chrome
-	iterm2
-	spotify
+  google-chrome
+  iterm2
+  spotify
 ).freeze
 
 begin
-	`brew -v`
+  `brew -v`
 rescue Errno::ENOENT
-	# Install package manager
-	`$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)`
+  # Install package manager
+  `$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)`
 end
 
 missing_formulaes = FORMULAES - `brew list`.split("\n")
 unless missing_formulaes.empty?
-	command = "brew install #{missing_formulaes.join(' ')}"
-	_, stderr, status = Open3.capture3(command)
-	puts stderr unless status
+  command = "brew install #{missing_formulaes.join(' ')}"
+  _, stderr, status = Open3.capture3(command)
+  puts stderr unless status
 end
 
 missing_applications = APPLICATIONS - `brew cask list`.split("\n")
 unless missing_applications.empty?
-	`brew cask install #{missing_applications.join(' ')}`
+  `brew cask install #{missing_applications.join(' ')}`
 end

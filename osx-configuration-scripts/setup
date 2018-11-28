@@ -9,46 +9,46 @@ puts "Beginning setup..."
 
 # Install interactive shell
 if File.exists?('/bin/zsh')
-	puts 'zsh already installed'
+  puts 'zsh already installed'
 else
-	puts 'installing zsh'
-	`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+  puts 'installing zsh'
+  `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 end
 
 # Configure local development environment
 if File.exists?(DEVELOPMENT_DIR)
-	puts "#{DEVELOPMENT_DIR} already exists"
+  puts "#{DEVELOPMENT_DIR} already exists"
 else
-	puts "creating #{DEVELOPMENT_DIR}"
-	`mkdir #{DEVELOPMENT_DIR}`
+  puts "creating #{DEVELOPMENT_DIR}"
+  `mkdir #{DEVELOPMENT_DIR}`
 end
 
 dotfiles_dir = File.join(DEVELOPMENT_DIR, 'dotfiles')
 if File.exists?(dotfiles_dir)
-	puts "#{dotfiles_dir} already exists"
+  puts "#{dotfiles_dir} already exists"
 else
-	puts "cloning dotfiles repository"
-	`git clone https://github.com/roverslim/dotfiles.git #{dotfiles_dir}`
+  puts "cloning dotfiles repository"
+  `git clone https://github.com/roverslim/dotfiles.git #{dotfiles_dir}`
 end
 
 require 'date'
 home_dir = File.expand_path('~/')
 SHELL_RESOURCES.each do |shell_resource|
-	shell_resource_dest = File.join(home_dir, shell_resource)
-	if File.exists?(shell_resource_dest) && File.realpath(shell_resource_dest).include?(dotfiles_dir)
-		puts "#{shell_resource} already links to dotfiles"
-		next
-	end
+  shell_resource_dest = File.join(home_dir, shell_resource)
+  if File.exists?(shell_resource_dest) && File.realpath(shell_resource_dest).include?(dotfiles_dir)
+    puts "#{shell_resource} already links to dotfiles"
+    next
+  end
 
-	if File.exists?(shell_resource_dest)
-		renamed_shell_resource = "#{shell_resource_dest}.#{DateTime.now.strftime('%F.%H.%M.%S.%L')}"
-		puts "A #{shell_resource_dest} already exists. Renaming it to #{renamed_shell_resource}"
-		`mv #{shell_resource_dest} #{renamed_shell_resource}`
-	end
+  if File.exists?(shell_resource_dest)
+    renamed_shell_resource = "#{shell_resource_dest}.#{DateTime.now.strftime('%F.%H.%M.%S.%L')}"
+    puts "A #{shell_resource_dest} already exists. Renaming it to #{renamed_shell_resource}"
+    `mv #{shell_resource_dest} #{renamed_shell_resource}`
+  end
 
-	shell_resource_target = File.join(dotfiles_dir, shell_resource)
-	puts "symlinking #{shell_resource_target} to #{home_dir}"
-	`ln -sfv #{shell_resource_target} #{home_dir}`
+  shell_resource_target = File.join(dotfiles_dir, shell_resource)
+  puts "symlinking #{shell_resource_target} to #{home_dir}"
+  `ln -sfv #{shell_resource_target} #{home_dir}`
 end
 
 # Clone vim plugins
@@ -74,8 +74,8 @@ end
 
 installed_ruby_versions = `ls ~/.rubies`
 if installed_ruby_versions.include?(RUBY_VERSION)
-	puts "ruby #{RUBY_VERSION} already installed"
+  puts "ruby #{RUBY_VERSION} already installed"
 else
-	puts "installing #{RUBY_VERSION}"
-	`ruby-install ruby #{RUBY_VERSION}`
+  puts "installing #{RUBY_VERSION}"
+  `ruby-install ruby #{RUBY_VERSION}`
 end
