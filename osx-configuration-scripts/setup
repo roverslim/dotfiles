@@ -2,7 +2,7 @@
 
 DEVELOPMENT_DIR = File.expand_path('~/development')
 RUBY_VERSION = '2.5.3'
-SHELL_RESOURCES = %w(.zshrc)
+SHELL_RESOURCES = %w(.zshrc .vimrc)
 
 puts "Beginning setup..."
 `./package-manager install`
