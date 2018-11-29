@@ -4,6 +4,7 @@ require 'open3'
 
 FORMULAES = %w(
   chruby
+  fzf
   git
   ruby-build
   ruby-install
@@ -29,6 +30,10 @@ unless missing_formulaes.empty?
   _, stderr, status = Open3.capture3(command)
   puts stderr unless status
 end
+
+# Post-install scripts
+#   Install useful key bindings and fuzzy completion
+`$(brew --prefix)/opt/fzf/install`
 
 missing_applications = APPLICATIONS - `brew cask list`.split("\n")
 unless missing_applications.empty?
