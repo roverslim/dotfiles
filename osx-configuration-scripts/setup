@@ -72,6 +72,28 @@ else
   `ln -sfv #{plugin_source} #{vim_dotfile_dir}`
 end
 
+plugin_dir = File.join(DEVELOPMENT_DIR, 'new-railscasts-theme')
+if File.exists?(plugin_dir)
+  puts "#{plugin_dir} already exists"
+else
+  puts "cloning new-railscasts-theme"
+  `git clone https://github.com/carakan/new-railscasts-theme #{plugin_dir}`
+
+  vim_dotfile_dir = File.join(home_dir, '.vim')
+  if File.exists?(vim_dotfile_dir)
+    puts "#{vim_dotfile_dir} already exists"
+  else
+    puts "creating #{vim_dotfile_dir}"
+    `mkdir #{vim_dotfile_dir}`
+  end
+
+  puts "symlinking new-railscasts-theme"
+  plugin_source = File.join(plugin_dir, 'colors')
+  `ln -sfv #{plugin_source} #{vim_dotfile_dir}`
+
+  `sed -i '' 's/colorscheme .*/colorscheme new-railscasts/g' .vimrc`
+end
+
 installed_ruby_versions = `ls ~/.rubies`
 if installed_ruby_versions.include?(RUBY_VERSION)
   puts "ruby #{RUBY_VERSION} already installed"

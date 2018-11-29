@@ -21,6 +21,6 @@ au BufRead,BufNewFile *.mrb setfiletype ruby
 au BufRead,BufNewFile *.axlsx setfiletype ruby
 
 set t_Co=256 " Force vim to use 256 colors
-colorscheme railscasts
+colorscheme new-railscasts
 
 call pathogen#helptags()
