@@ -1,5 +1,7 @@
 #!/usr/bin/ruby
 
+require 'open3'
+
 FORMULAES = %w(
   chruby
   git
