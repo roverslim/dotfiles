@@ -15,6 +15,7 @@ APPLICATIONS = %w(
   google-chrome
   iterm2
   spotify
+  spotifree
 ).freeze
 
 begin
