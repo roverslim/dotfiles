@@ -32,11 +32,13 @@ unless missing_formulaes.empty?
   puts stderr unless status
 end
 
-# Post-install scripts
-#   Install useful key bindings and fuzzy completion
-`$(brew --prefix)/opt/fzf/install`
-
 missing_applications = APPLICATIONS - `brew cask list`.split("\n")
 unless missing_applications.empty?
   `brew cask install #{missing_applications.join(' ')}`
+end
+
+if missing_applications.include?('fzf')
+  # Post-install scripts
+  #   Install useful key bindings and fuzzy completion
+  `$(brew --prefix)/opt/fzf/install`
 end
