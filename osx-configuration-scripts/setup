@@ -5,7 +5,7 @@ RUBY_VERSION = '2.5.3'
 SHELL_RESOURCES = %w(.zshrc .vimrc)
 
 puts "Beginning setup..."
-`./package-manager install`
+`ruby -r"./package_manager.rb" -e "PackageManager.run"`
 
 # Install interactive shell
 if File.exists?('/bin/zsh')

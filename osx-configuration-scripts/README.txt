@@ -1,3 +1,6 @@
+# To run, install and update the package manager
+`ruby -r"./package_manager.rb" -e "PackageManager.run"`
+
 # Automatically load keys into the ssd-agent and store passphrases in keychain
 tee -a ~/.ssh/config << END
 Host *
