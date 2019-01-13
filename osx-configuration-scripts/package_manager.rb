@@ -5,6 +5,7 @@ module PackageManager
     chruby
     fzf
     git
+    postgresql
     ruby-build
     ruby-install
     the_silver_searcher
