@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 DEVELOPMENT_DIR = File.expand_path('~/development')
-RUBY_VERSION = '2.5.3'
+RUBY_VERSION = '2.6.0'
 SHELL_RESOURCES = %w(.zshrc .vimrc)
 
 puts "Beginning setup..."
@@ -99,5 +99,6 @@ if installed_ruby_versions.include?(RUBY_VERSION)
   puts "ruby #{RUBY_VERSION} already installed"
 else
   puts "installing #{RUBY_VERSION}"
+  `ruby-install -L`
   `ruby-install ruby #{RUBY_VERSION}`
 end
