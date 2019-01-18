@@ -5,6 +5,7 @@ module PackageManager
     chruby
     fzf
     git
+    heroku/brew/heroku
     postgresql
     ruby-build
     ruby-install
